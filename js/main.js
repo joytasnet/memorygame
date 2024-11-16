@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     constructor(suit, num) {
       this.suit = suit;
       this.num = num;
+      this.front=`${suit}${num < 10 ? '0':''}${num}.gif`;//カードの画像
     }
   }
 
@@ -21,10 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // カードグリッドを初期化
   const cardgrid = document.getElementById('cardgrid');
   const initgrid = () => {
-    cardgrid.textContent=null;//cardgridに入っている要素をすべて削除
+    cardgrid.textContent=null;
     cards.forEach(card => {
       const div = document.createElement('div');
-      div.textContent=card.suit+':'+card.num;
+      //div.textContent=card.suit+':'+card.num;
+      div.style.backgroundImage=`url(images/${card.front})`;//背景画像に画像を設定
       div.classList.add('card');
       cardgrid.appendChild(div);
     });
