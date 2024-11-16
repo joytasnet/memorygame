@@ -19,6 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
       cards.push(new Card(suit, num));
     }
   });
+  //クリックした際の関数を定義
+  const flip=(eve)=>{
+    //クリックされた要素を特定
+    const div=eve.target;
+    //toggle(ついていたら外れ、外れていたら付く)
+    div.classList.toggle('back');
+  };
   // カードグリッドを初期化
   const cardgrid = document.getElementById('cardgrid');
   const initgrid = () => {
@@ -26,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
       const div = document.createElement('div');
       div.style.backgroundImage=`url(images/${card.front})`;
-      div.classList.add('card','back');//divにbackクラスも追加
+      div.classList.add('card','back');
+      div.onclick=flip;
       cardgrid.appendChild(div);
     });
   };
