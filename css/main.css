@@ -12,7 +12,16 @@ div.card{
   aspect-ratio: 2 / 3;
   background-size:contain;
 }
-/*div要素でclassにbackがついている要素は裏面画像(importantルール適用)*/
 div.back{
   background-image:url(../images/z01.gif) !important;
+}
+/* フェードアウトアニメーションの定義 */
+@keyframes fadeOutEffect {
+  to {
+    opacity: 0;
+  }
+}
+/* アニメーションを適用するクラス */
+div.fadeout {
+  animation: fadeOutEffect 1.2s 0.8s forwards;
 }
