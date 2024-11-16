@@ -25,16 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
     cardgrid.textContent=null;
     cards.forEach(card => {
       const div = document.createElement('div');
-      //div.textContent=card.suit+':'+card.num;
-      div.style.backgroundImage=`url(images/${card.front})`;//背景画像に画像を設定
+      div.style.backgroundImage=`url(images/${card.front})`;
       div.classList.add('card');
       cardgrid.appendChild(div);
     });
+  };
+  //カードシャッフル関数(Fisher–Yates shuffle)
+  const shuffle=()=>{
+    let i=cards.length;
+    while(i){
+      const index=Math.floor(Math.random()*i--);
+      [cards[index],cards[i]]=[cards[i],cards[index]]
+    }
   };
 
   // ゲームスタートボタン
   const startBt = document.getElementById('startBt');
   startBt.addEventListener('click', () => {
+    shuffle();
     initgrid();
   });
 });
