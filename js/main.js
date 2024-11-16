@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
       const div = document.createElement('div');
       div.style.backgroundImage=`url(images/${card.front})`;
-      div.classList.add('card');
+      div.classList.add('card','back');//divにbackクラスも追加
       cardgrid.appendChild(div);
     });
   };

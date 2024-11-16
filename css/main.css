@@ -8,9 +8,11 @@ body{
   grid-template-columns:repeat(13,1fr);
   gap:0.5vh;
 }
-/*td要素でなおかつclassにcardがついている要素*/
 div.card{
   aspect-ratio: 2 / 3;
-  /*background-color:yellow;*/
-  background-size:contain; /*コンテナいっぱいに画像を拡大縮小する*/
+  background-size:contain;
+}
+/*div要素でclassにbackがついている要素は裏面画像(importantルール適用)*/
+div.back{
+  background-image:url(../images/z01.gif) !important;
 }
